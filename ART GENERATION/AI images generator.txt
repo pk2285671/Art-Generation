@@ -1,0 +1,35 @@
+AI images generator:
+
+
+
+pip install torch torchvision torchaudio transformers diffusers matplotlib
+
+
+
+
+import torch
+from torchvision.utils import save_image
+from transformers import CLIPTextModel, CLIPTokenizer
+from diffusers import StableDiffusionPipeline
+import matplotlib.pyplot as plt
+
+# Load the model - you might try using a model fine-tuned on art datasets if available
+model_name = "CompVis/stable-diffusion-v1-4"  # You can explore other art-focused models on Hugging Face
+
+# Initialize the pipeline
+pipe = StableDiffusionPipeline.from_pretrained(model_name, torch_dtype=torch.float16).to("cuda")
+
+# Define a prompt with artistic style
+
+image_2=input()
+image_3=image_2+"painting by an artist"
+prompt = image_3
+# Generate the image with a higher guidance scale for more stylistic alignment
+with torch.no_grad():
+    image = pipe(prompt, guidance_scale=9.0).images[0]
+
+# Save and display the generated art
+image.save("generated_art.png")
+plt.imshow(image)
+plt.axis("off")
+plt.show()

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart & Payment</title>
+    <style>
+        body {  background: url('https://wallpapercave.com/wp/wp6193374.jpg') no-repeat center center fixed;
+font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        .cart { max-width: 800px; margin: 0 auto; }
+        .cart-item { display: flex; justify-content: space-between; padding: 15px; background: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); margin-bottom: 15px; }
+        .cart-item h4 { margin: 0; }
+        .cart-item p { margin: 0; }
+        .cart-total { color:white; text-align: right; font-size: 1.5rem; margin-top: 20px; }
+        .checkout-btn { display: block; width: 100%; padding: 15px; background-color: #007bff; color: white; border: none; border-radius: 5px; font-size: 1.2rem; cursor: pointer; }
+        .checkout-btn:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+
+    <h1 style="color:white;">Your Cart</h1>
+    <div class="cart" id="cart">
+        <!-- Cart items will be displayed here -->
+    </div>
+    <div class="cart-total" id="cart-total">Total: $0</div>
+    <button class="checkout-btn" onclick="window.location.href='file:///C:/Users/Hari/OneDrive/Desktop/pay.html';">Proceed to Payment</button>
+
+    <script>
+        // Load cart from localStorage and display
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartContainer = document.getElementById('cart');
+            let cartTotal = document.getElementById('cart-total');
+            let total = 0;
+
+            cartContainer.innerHTML = '';
+            cart.forEach(item => {
+                let cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `<h4>${item.name}</h4><p>$${item.price}</p>`;
+                cartContainer.appendChild(cartItem);
+                total += item.price;
+            });
+
+            cartTotal.innerHTML = `Total: $${total}`;
+        }
+
+        function checkout() {
+            alert('Proceeding to payment...');
+            // Implement payment logic here, possibly redirecting to a payment gateway
+            localStorage.removeItem('cart'); // Clear the cart after checkout
+        }
+        
+
+        loadCart(); // Load the cart when the page loads
+    </script>
+</body>
+</html>

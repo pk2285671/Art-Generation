@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMAGINIX Gallery</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: url('https://wallpaperbat.com/img/907472-landscape-art-wallpaper.jpg') no-repeat center center/cover; padding: 20px; }
+        .art-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .art-item { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); text-align: center; }
+        .art-item img { max-width: 100%; border-radius: 10px; }
+        .art-item button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        .art-item button:hover { background-color: #218838; }
+        .cart-link { display: block; margin-top: 20px; text-align: center; font-size: 1.2rem; color: #007bff; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <h1 style="color:white;">IMAGINIX Gallery</h1>
+    <div class="art-gallery">
+        <div class="art-item">
+            <img src="https://up.yimg.com/ib/th?id=OIP.X3yUFTiZBkWct_xC26CD1wHaHa&pid=Api&rs=1&c=1&qlt=95&w=113&h=113" alt="AI Art 1">
+            <h3>AI Art #1</h3>
+            <p>$150</p>
+            <button onclick="addToCart('AI Art #1', 150)">Add to Cart</button>
+        </div>
+        <div class="art-item">
+            <img src="https://i.pinimg.com/originals/94/c0/e1/94c0e101937f141ca11aa75e75aac872.jpg" alt="AI Art 2">
+            <h3>AI Art #2</h3>
+            <p>$200</p>
+            <button onclick="addToCart('AI Art #2', 200)">Add to Cart</button>
+        </div>
+	<div class="art-item">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.TrjvkrI_28sePvkfZQ0TrwHaEK&pid=Api&P=0&h=180" alt="AI Art 3">
+            <h3>AI Art #3</h3>
+            <p>$200</p>
+            <button onclick="addToCart('AI Art #3', 200)">Add to Cart</button>
+        </div>
+	<div class="art-item">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.YvxloAdCqS8H7XPCr-VRHQHaGL&pid=Api&P=0&h=180" alt="AI Art 4">
+            <h3>AI Art #4</h3>
+            <p>$200</p>
+            <button onclick="addToCart('AI Art #4', 200)">Add to Cart</button>
+        </div>
+	<div class="art-item">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.HIJVj1fezbIKs52uVvphPwHaEK&pid=Api&P=0&h=180" alt="AI Art 5">
+            <h3>AI Art #5</h3>
+            <p>$200</p>
+            <button onclick="addToCart('AI Art #5', 200)">Add to Cart</button>
+        </div>
+	<div class="art-item">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.HZuuOuq8bjSXDn5mc2LRtwHaI5&pid=Api&P=0&h=180" alt="AI Art 6">
+            <h3>AI Art #6</h3>
+            <p>$200</p>
+            <button onclick="addToCart('AI Art #6', 200)">Add to Cart</button>
+        </div>
+	<div class="art-item">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.b09rOqgIgfJ9teK8IIbsegHaEs&pid=Api&P=0&h=180" alt="AI Art 7">
+            <h3>AI Art #7</h3>
+            <p>$200</p>
+            <button onclick="addToCart('AI Art #7', 200)">Add to Cart</button>
+        </div>
+	<div class="art-item">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.GI6QaSL3wFbMwYRGOnEB5gHaHe&pid=Api&P=0&h=180" alt="AI Art 8">
+            <h3>AI Art #8</h3>
+            <p>$200</p>
+            <button onclick="addToCart('AI Art #8', 200)">Add to Cart</button>
+        </div>
+	<div class="art-item">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.-25veE_cUN0F0yBO_GIW6QHaHa&pid=Api&P=0&h=180" alt="AI Art 9">
+            <h3>AI Art #9</h3>
+            <p>$200</p>
+            <button onclick="addToCart('AI Art #9', 200)">Add to Cart</button>
+        </div>
+	<div class="art-item">
+            <img src="https://i.pinimg.com/originals/8e/9b/12/8e9b12eeb5b5e3720e641246508c348c.jpg" alt="AI Art 10">
+            <h3>AI Art #10</h3>
+            <p>$200</p>
+            <button onclick="addToCart('AI Art #10', 200)">Add to Cart</button>
+        </div>
+        <!-- Add more art items similarly -->
+    </div>
+
+          <button onclick="window.location.href='file:///C:/Users/Hari/OneDrive/Desktop/cart.html';">Go To Cart</button>
+
+
+
+    <script>
+        function addToCart(itemName, itemPrice) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name: itemName, price: itemPrice });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(itemName + ' has been added to your cart!');
+        }
+    </script>
+</body>
+</html>
